@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="blued, RED by BAMBA. A free album in two halves: Swahili songs on the blued side, English rap on the RED side.">
+<meta property="og:title" content="BAMBA — blued, RED">
+<meta property="og:description" content="Free album download. 10 tracks.">
+<!-- For link previews on WhatsApp/X, replace with the full web address of cover.jpg once hosted -->
+<meta property="og:image" content="cover.jpg">
+<title>BAMBA — blued, RED</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Archivo+Narrow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the cover's split face — one seam down the page; blued lives on the left in blue light, RED on the right in red light. Single dark look by choice. */
+:root {
+  color-scheme: dark;
+  --ink: #060609;
+  --panel: #0d0d14;
+  --paper: #ecebf2;
+  --muted: #9594a8;
+  --blue: #2f5bff;
+  --blue-soft: #1a2a6b;
+  --red: #ff2a2a;
+  --red-soft: #6b1616;
+  --line: #24243a;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Archivo Narrow", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+* { box-sizing: border-box; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html, body { background: var(--ink); color: var(--paper); }
+body { margin: 0; font-family: var(--body); font-size: 17px; line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  padding-block: 56px 64px;
+  background:
+    radial-gradient(60% 80% at 0% 40%, rgba(47,91,255,.22), transparent 70%),
+    radial-gradient(60% 80% at 100% 40%, rgba(255,42,42,.2), transparent 70%),
+    var(--ink);
+  overflow: hidden;
+}
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.cover-box { display: grid; gap: 14px; }
+.cover {
+  position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 100%;
+  background: #000; box-shadow: -18px 0 60px -20px rgba(47,91,255,.55), 18px 0 60px -20px rgba(255,42,42,.5);
+}
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .5s ease; }
+.cover img.alt { opacity: 0; }
+.cover.show-alt img.alt { opacity: 1; }
+.cover.show-alt img.main { opacity: 0; }
+.cover-switch { display: flex; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.cover-switch button {
+  font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer;
+  background: transparent; color: var(--muted); border: 1px solid var(--line); padding: 7px 12px;
+}
+.cover-switch button[aria-pressed="true"] { color: var(--paper); border-color: var(--paper); }
+
+.artist { font-family: var(--mono); font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+h1 { margin: 0; font-family: var(--display); font-weight: 500; line-height: .95; font-size: clamp(56px, 9vw, 112px); letter-spacing: -.01em; }
+h1 .b { color: var(--blue); font-style: italic; }
+h1 .r { color: var(--red); font-weight: 700; letter-spacing: .12em; }
+.lede { max-width: 34em; color: var(--paper); opacity: .86; margin: 22px 0 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 22px 0 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.facts b { color: var(--paper); font-weight: 500; }
+
+.dl { margin-top: 30px; display: grid; gap: 10px; justify-items: start; }
+.dl-btn {
+  display: inline-flex; align-items: center; gap: 14px; text-decoration: none;
+  font-family: var(--body); font-weight: 600; font-size: 18px; letter-spacing: .08em; text-transform: uppercase;
+  color: #fff; padding: 16px 26px;
+  background: linear-gradient(90deg, var(--blue) 0 50%, var(--red) 50% 100%);
+  transition: transform .2s ease, filter .2s ease;
+}
+.dl-btn:hover { transform: translateY(-2px); filter: brightness(1.12); }
+.dl-btn svg { width: 18px; height: 18px; }
+.dl-btn.pending { background: var(--panel); color: var(--muted); border: 1px dashed var(--line); cursor: default; }
+.dl-btn.pending:hover { transform: none; filter: none; }
+.dl-note { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0; }
+
+/* ---------- TRACKLIST ---------- */
+.sides { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.side { padding-block: 56px 64px; min-width: 0; }
+.side.blued { background: linear-gradient(180deg, rgba(47,91,255,.10), transparent 60%), var(--ink); border-right: 1px solid var(--line); }
+.side.red { background: linear-gradient(180deg, rgba(255,42,42,.10), transparent 60%), var(--ink); }
+.side-inner { padding-inline: 20px; max-width: 560px; }
+.side.blued .side-inner { margin-left: auto; padding-right: 40px; }
+.side.red .side-inner { padding-left: 40px; }
+
+.side h2 { margin: 0; font-family: var(--display); font-size: clamp(40px, 5vw, 60px); line-height: 1; font-weight: 500; }
+.side.blued h2 { color: var(--blue); font-style: italic; }
+.side.red h2 { color: var(--red); font-weight: 700; letter-spacing: .12em; }
+.side .blurb { margin: 14px 0 0; color: var(--muted); max-width: 32em; }
+.side .lang { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; margin: 18px 0 0; }
+.side.blued .lang { color: #8ea4ff; }
+.side.red .lang { color: #ff8a8a; }
+
+ol.tracks { list-style: none; margin: 34px 0 0; padding: 0; display: grid; }
+ol.tracks li { display: grid; grid-template-columns: 2.4em minmax(0,1fr); gap: 4px 12px; padding-block: 16px; border-top: 1px solid var(--line); }
+ol.tracks li:last-child { border-bottom: 1px solid var(--line); }
+.no { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 6px; }
+.t { font-family: var(--display); font-size: 24px; line-height: 1.2; }
+.side.blued .t { font-style: italic; }
+.side.red .t { font-weight: 700; letter-spacing: .05em; font-size: 21px; }
+.tag { display: inline-block; vertical-align: middle; margin-left: 10px; font-family: var(--mono); font-style: normal; font-weight: 400; letter-spacing: .08em; font-size: 10.5px; text-transform: uppercase; padding: 2px 7px; border: 1px solid currentColor; }
+.side.blued .tag { color: #8ea4ff; }
+.side.red .tag { color: #ff8a8a; }
+.credit { grid-column: 2; font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.6; }
+.credit .who { color: var(--paper); opacity: .8; }
+
+/* ---------- THEMES ---------- */
+.themes { padding-block: 64px; border-top: 1px solid var(--line); background: var(--panel); }
+.themes h2, .about h2 { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 0 0 26px; }
+.theme-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.theme-list li { padding: 22px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 22px; line-height: 1.25; min-width: 0; }
+.theme-list li small { display: block; margin-top: 6px; font-family: var(--body); font-size: 14px; color: var(--muted); line-height: 1.45; }
+.theme-list .vs { color: var(--muted); font-style: italic; font-weight: 500; }
+.theme-list .cb { color: #8ea4ff; font-style: italic; }
+.theme-list .cr { color: #ff8a8a; }
+
+/* ---------- ABOUT / FOOTER ---------- */
+.about { padding-block: 64px; border-top: 1px solid var(--line); }
+.about .grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.about p { margin: 0 0 14px; max-width: 36em; }
+.note { font-family: var(--mono); font-size: 13px; color: var(--muted); border-left: 2px solid var(--red); padding-left: 16px; }
+.note p { margin: 0 0 10px; }
+.share { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; align-items: center; }
+.share button { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; background: transparent; color: var(--paper); border: 1px solid var(--paper); padding: 9px 14px; }
+.share span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+footer { padding-block: 28px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.pa { display: inline-block; border: 1px solid var(--paper); color: var(--paper); padding: 2px 6px; letter-spacing: .12em; font-size: 10px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .hero { padding-block: 32px 48px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .sides { grid-template-columns: 1fr; }
+  .side.blued { border-right: 0; border-bottom: 1px solid var(--line); }
+  .side .side-inner, .side.blued .side-inner, .side.red .side-inner { margin: 0 auto; padding-inline: 20px; max-width: 640px; }
+  .theme-list { grid-template-columns: 1fr 1fr; }
+  .about .grid { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 520px) {
+  .theme-list { grid-template-columns: 1fr; }
+  .t { font-size: 21px; }
+  .dl-btn { width: 100%; justify-content: center; }
+  .dl { justify-items: stretch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover img, .dl-btn { transition: none; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="cover-box">
+      <div class="cover" id="cover">
+        <img class="main" src="cover.jpg" alt="blued, RED official cover: a face lit half blue, half red, with a blue pill and a red pill on the tongue">
+        <img class="alt" src="cover-alt.jpg" alt="blued, RED alternate cover: the title hand-drawn in blue and red on white">
+      </div>
+      <div class="cover-switch" role="group" aria-label="Choose cover">
+        <button type="button" id="btn-main" aria-pressed="true">Official cover</button>
+        <button type="button" id="btn-alt" aria-pressed="false">Alternate cover</button>
+      </div>
+    </div>
+
+    <div>
+      <p class="artist">BAMBA</p>
+      <h1><span class="b">blued,</span><br><span class="r">RED</span></h1>
+      <p class="lede">A free album in two halves. The blued side sings in Swahili, tracing the voices BAMBA grew up on. The RED side raps in English, slow and melancholic. Somewhere between the two is acceptance.</p>
+      <ul class="facts">
+        <li><b>10</b> tracks</li>
+        <li><b>2</b> skits</li>
+        <li><b>1</b> acapella</li>
+        <li>Swahili / English</li>
+        <li><b>Free</b> download</li>
+      </ul>
+      <div class="dl">
+        <a class="dl-btn" id="dl-btn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
+          <span id="dl-label">Download the album</span>
+        </a>
+        <p class="dl-note" id="dl-note">Free. No sign-up. Full album, all 10 tracks.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sides" aria-label="Tracklist">
+    <div class="side blued">
+      <div class="side-inner">
+        <h2>blued,</h2>
+        <p class="lang">Side A · Swahili · 6 tracks</p>
+        <p class="blurb">Songs sung in Swahili, inspired by the artists who shaped BAMBA growing up, framed by two skits from Bongo comedy and film legends.</p>
+        <ol class="tracks">
+          <li>
+            <span class="no">01</span>
+            <span class="t">back from america<span class="tag">Skit</span></span>
+            <span class="credit">Narrated by <span class="who">Sharo Milionea &amp; Mzee Majuto</span><br>Hussein Mkiety; Amri Athuman</span>
+          </li>
+          <li>
+            <span class="no">02</span>
+            <span class="t">malaika</span>
+            <span class="credit">Adam Salim; Fadhili William; Tom Mboya; Miriam Makeba; Andrew Bambaga</span>
+          </li>
+          <li>
+            <span class="no">03</span>
+            <span class="t">self control</span>
+            <span class="credit">Christopher Breaux; Malay Ho; Jon Brion; Alex G; Austin Feinstein; Andrew Bambaga</span>
+          </li>
+          <li>
+            <span class="no">04</span>
+            <span class="t">dalilah</span>
+            <span class="credit">Axon; Joshua Baraka; ZIKKU; Andrew Bambaga</span>
+          </li>
+          <li>
+            <span class="no">05</span>
+            <span class="t">ukimuona<span class="tag">Acapella</span></span>
+            <span class="credit">Andrew Bambaga; Nasibu Abdul</span>
+          </li>
+          <li>
+            <span class="no">06</span>
+            <span class="t">usaliti<span class="tag">Skit</span></span>
+            <span class="credit">By <span class="who">Kanumba</span><br>Steven Kanumba</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="side red">
+      <div class="side-inner">
+        <h2>RED</h2>
+        <p class="lang">Side B · English · 4 tracks</p>
+        <p class="blurb">Melancholic rap in English. Late nights, missed people, and a flood that took more than water from Kigogo.</p>
+        <ol class="tracks">
+          <li>
+            <span class="no">07</span>
+            <span class="t">FEELS</span>
+            <span class="credit">Brooderick; Andrew Bambaga</span>
+          </li>
+          <li>
+            <span class="no">08</span>
+            <span class="t">MISS U</span>
+            <span class="credit">Andrew Bambaga; ZIKKU; Kelvin Harrison Jr.; Alexa Demie</span>
+          </li>
+          <li>
+            <span class="no">09</span>
+            <span class="t">IMPERFECTLY PERFECT</span>
+            <span class="credit">Andrew Bambaga; ZIKKU</span>
+          </li>
+          <li>
+            <span class="no">10</span>
+            <span class="t">4AM IN KIGOGO</span>
+            <span class="credit">Brooderick; Andrew Bambaga; Dickson Makwaya</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="themes" aria-labelledby="themes-h">
+    <div class="wrap">
+      <h2 id="themes-h">What it's about</h2>
+      <ul class="theme-list">
+        <li>American accent stigma<small>Played for laughs, from the opening skit.</small></li>
+        <li><span class="cb">Singing</span> <span class="vs">vs</span> <span class="cr">RAPPING</span><small>The two halves of the record, and of the artist.</small></li>
+        <li>Melancholia<small>The weather on the RED side.</small></li>
+        <li>The Kigogo floods<small>Residents' experience, narrated by BAMBA.</small></li>
+        <li><span class="cb">Swahili</span> <span class="vs">vs</span> <span class="cr">ENGLISH</span><small>Which language holds which feeling.</small></li>
+        <li>Acceptance<small>Where it all lands.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap grid">
+      <div>
+        <h2 id="about-h">About the release</h2>
+        <p><em>blued, RED</em> is released the way <em>nostalgia, ULTRA</em> was: free, straight to the people, no store in between.</p>
+        <p>Download it, play it loud, and pass it on.</p>
+        <div class="share">
+          <button type="button" id="copy-btn">Copy page link</button>
+          <span id="copy-msg" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="note">
+        <p>This is a free, non-commercial release. It is not for sale, and it is not on streaming services.</p>
+        <p>Samples and interpolations are credited to their original writers in the tracklist above.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>BAMBA · blued, RED</span>
+    <span class="pa">Parental Advisory · Explicit Content</span>
+  </div>
+</footer>
+
+<script>
+  /* Paste the album's download link here (Google Drive, Mega, Dropbox, etc.). */
+  const DOWNLOAD_URL = "";
+
+  const btn = document.getElementById("dl-btn");
+  if (DOWNLOAD_URL) {
+    btn.href = DOWNLOAD_URL;
+  } else {
+    btn.classList.add("pending");
+    btn.removeAttribute("href");
+    btn.setAttribute("aria-disabled", "true");
+    document.getElementById("dl-label").textContent = "Download link coming soon";
+    document.getElementById("dl-note").textContent = "The album is free. Check back here for the link.";
+  }
+
+  const cover = document.getElementById("cover");
+  const bMain = document.getElementById("btn-main");
+  const bAlt = document.getElementById("btn-alt");
+  function setCover(alt) {
+    cover.classList.toggle("show-alt", alt);
+    bMain.setAttribute("aria-pressed", String(!alt));
+    bAlt.setAttribute("aria-pressed", String(alt));
+  }
+  bMain.addEventListener("click", () => setCover(false));
+  bAlt.addEventListener("click", () => setCover(true));
+
+  const copyBtn = document.getElementById("copy-btn");
+  const copyMsg = document.getElementById("copy-msg");
+  copyBtn.addEventListener("click", () => {
+    const url = location.href.split("#")[0];
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(
+        () => { copyMsg.textContent = "Link copied"; },
+        () => { copyMsg.textContent = url; }
+      );
+    } else {
+      copyMsg.textContent = url;
+    }
+  });
+</script>
+</body>
+</html>
