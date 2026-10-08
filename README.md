@@ -15,13 +15,13 @@
 
 **BAMBA is the architect of Uswazi Noir.**
 
-Operating entirely outside the commercial machinery of East African pop, the Dar es Salaam native bridges the late-night, hazy aesthetics of global alternative R&B with the raw, daylight realities of modern Tanzanian youth culture.
+The Dar es Salaam native is operating outside the commercial machinery of East African pop. He is bridging the late night aesthetics of global alternative R&B with the raw realities of modern Tanzanian youth culture.
 
 ## The album
 
-His debut independent project, ***blued, RED***, is a cinematic audio-documentary of modern isolation, substance-fueled escapism, and the devastating friction of *Usaliti* (betrayal). Moving seamlessly between English and Swahili slang, BAMBA anchors Western "sad-boy" sonics into the local concrete of Kigogo. Sampling iconic cultural relics—from the dramatic weight of Steven Kanumba to the sobering humor of Mzee Majuto, Sharo Milionea, and Bambo—this tape strips away the glamorous illusions of the fast life to reveal the unfiltered truths of Uswaziland.
+His debut independent project, ***blued, RED***, is a cinematic audio-documentary of modern isolation. It's a substance fueled escapism, that adds to the devastating friction of *Usaliti* (betrayal). BAMBA anchors Western "sad-boy" sonics into the local concrete of Kigogo by moving between English and Swahili slang. The tape samples iconic cultural relics from the dramatic weight of Steven Kanumba, to the sobering humor of Mzee Majuto & Sharo Milionea, plus Bambo. It strips away the glamorous illusions of the fast life to reveal the unfiltered truths of Uswaziland.
 
-No label middlemen. No streaming politics. Just a direct line from the trenches to your speakers. Welcome to a Drew world.
+No label middlemen. Just a direct line from the trenches to your speakers. Nomad.
 
 ---
 
@@ -60,13 +60,13 @@ No label middlemen. No streaming politics. Just a direct line from the trenches 
 
 ## Listen
 
-The full album is free to download from the official site, along with the lyrics to every track.
+The full album is free to download from the official site. Its embedded with the lyrics to every track.
 
-This is a free, non-commercial release. It is not for sale. Samples and interpolations are credited to their original writers above.
+This is a free release. It is not for sale. Samples and interpolations are credited to their original writers above.
 
 ## About this repository
 
-This repository holds the album's website, hosted on Netlify.
+This repository holds the album's website. Its hosted on Netlify.
 
 | File | What it is |
 |------|------------|
