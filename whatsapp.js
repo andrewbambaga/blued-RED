@@ -11,8 +11,8 @@
   Taps are counted in GoatCounter as "whatsapp".
   While the number below is empty, nothing shows on the site.
 */
-var WHATSAPP_NUMBER = "";
-var WHATSAPP_MESSAGE = "blued RED";
+var WHATSAPP_NUMBER = "+255 757 499 397";
+var WHATSAPP_MESSAGE = "blued, RED";
 
 (function () {
   "use strict";
